@@ -1,0 +1,33 @@
+{
+  "env": {
+    "jest": true
+  },
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "globals": {
+    "document": true,
+    "localStorage": true,
+    "window": true,
+    "navigator": true,
+    "fetch": true
+  },
+  "plugins": [
+    "react-hooks"
+  ],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prop-types": 0,
+    "global-require": "warn",
+    "no-underscore-dangle": [2, { "allow": [ "__STORE__" ] }],
+    "jsx-a11y/label-has-for": [ 1, {
+      "components": [ "Label" ],
+      "required": {
+        "some": [ "nesting", "id" ]
+      },
+      "allowChildren": false
+    }],
+    "max-len": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}
