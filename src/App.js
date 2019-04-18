@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import StartGameForm from './components/pages/StartGameForm.jsx';
+import Card from './components/atoms/Card';
 
 class App extends Component {
   render() {
@@ -20,7 +20,7 @@ class App extends Component {
           >
             Learn React
           </a>
-          <StartGameForm />
+          <Card text='ДИГ'/>
         </header>
       </div>
     );
