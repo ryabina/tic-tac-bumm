@@ -8,7 +8,7 @@ const StyledTimer = styled.p`
 
 const Timer = () => {
   return (
-    <StyledTimer> 23:11 </StyledTimer>
+    <StyledTimer data-testid="test-timer"> 23:11 </StyledTimer>
   );
 };
 
