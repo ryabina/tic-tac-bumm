@@ -6,8 +6,5 @@ script: yarn lint && yarn lint:css && yarn test:ci && yarn build
 deploy:
   provider: heroku
   app: tick-tack-bumm
-  on:
-    tags: true
-    branch: master
   api_key:
     secure: t8qXn5min2ij7cY0tB5CM/KJeXtQKfpS95fXJnG6wn5MH6Vz72F1O6K8+9rZ7cbcdTb99Mun2Ghb/SDAKAGE/CPmP5aTe5AVvE5FDSOO52R7BzL23ZECPJw2sS0hVSIA+9Ky/JgZo6tbuCtPIpGhDOTTey+yLP9mJQZpjDdxfpZYqcNaYx92OinVPRakC2fifF+Npecc7rQckpfI2xqG/PfQdSIDaLDTtFzUxWPvjkCgM7tHYe2jMBQODNIk0sSvTw8guVdHDry2iFfMTlZSNESy2aRthxBTp1RmNFd/JVOeHhm+vJLYzwKrUwBjACpsv8NG9XkBevDWQvT8J/4LTnvGVwW+SEqCBzsnQw800NG2eRi2uJC+l63ZRyZo+pNQ/6bedDMH4eWe9UF4/y9bnlv9VB+9ErqNBNyZg/veXnvdUz8M6qU/9lGlyNPhz6PUXxrS6Kb4EKgjOqOFSuPaaIyCThWhRTcxhvcdosmfwAnGBWXI6WHpoXp4L7QqYHDO10uQjwe/Lk641LUrqhOQcapGNjU0lXrd+D9PCKsX9H8l8+qaW/Dud8EWkldD3O+fviYw261+PfK3WlndA+W7Wwf8KbpHLwTv4IPUQu/WPUh4ncIm6YqIypx+ZLwPodWAuXq8Mjr9Jr/ZCfhqpJNm3xXrEoPxLXgA6JMQJGnwE58=
