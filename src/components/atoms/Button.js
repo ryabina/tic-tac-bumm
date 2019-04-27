@@ -15,7 +15,7 @@ const StyledButton = styled.button`
 const Button = (props) => {
   const { buttonText } = props;
   return (
-    <StyledButton data-testid="test-button" >{ buttonText }</StyledButton>
+    <StyledButton data-testid="test-button">{ buttonText }</StyledButton>
   );
 };
 

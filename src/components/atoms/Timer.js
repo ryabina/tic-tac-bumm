@@ -6,10 +6,8 @@ const StyledTimer = styled.p`
  margin-top: 10px;
 `;
 
-const Timer = () => {
-  return (
-    <StyledTimer> 23:11 </StyledTimer>
-  );
-};
+const Timer = () => (
+  <StyledTimer> 23:11 </StyledTimer>
+);
 
 export default Timer;

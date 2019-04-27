@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Card from '../atoms/Card';
-//import Button from '../atoms/Button';
 import Timer from '../atoms/Timer';
 
 
@@ -21,22 +20,24 @@ const Game = () => {
   const [isStarted, setIsStarted] = useState(false);
 
   const handleClick = () => {
-      setIsStarted(!isStarted);
+    setIsStarted(!isStarted);
   };
 
-  const cardText = "ДНА";
+  const cardText = 'ДНА';
   return (
     <>
-     <Card text = {cardText}/>
-     <Button onClick = {handleClick}
-             data-testid="test-button" >
-         {isStarted ? "Pause" : "Start"}
-     </Button>
-     <div data-testid="test-timer">
+      <Card text={cardText} />
+      <Button
+        onClick={handleClick}
+        data-testid="test-button"
+      >
+        {isStarted ? 'Pause' : 'Start'}
+      </Button>
+      <div data-testid="test-timer">
         { isStarted
           && <Timer />
         }
-     </div>
+      </div>
 
     </>
   );
