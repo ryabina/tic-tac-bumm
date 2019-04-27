@@ -1,11 +1,14 @@
 import React from 'react';
 import 'jest-dom/extend-expect';
 import 'react-testing-library/cleanup-after-each';
-import { render } from 'react-testing-library';
+import { render, fireEvent, wait } from 'react-testing-library';
 
 import Game from './Game';
 
 describe('GamePage', () => {
+  beforeEach(() => {
+    jest.resetModules();
+  });
 
   test('should have start in button text', () => {
     const expectedButtonText = 'Start';
@@ -16,12 +19,22 @@ describe('GamePage', () => {
     // Act
     // Assert
     expect(buttonGame).toHaveTextContent(expectedButtonText);
-    expect(timer).not.toBeVisible();
+    expect(timer.children.length).toEqual(0);
   });
 
 
   test('should render timer when game started', () => {
-
-
+    // Arrange
+    const { getByTestId } = render(<Game />);
+    const timer = getByTestId('test-timer');
+    const expectedButtonText = 'Pause';
+    const expectedTime = '23:11';
+    const buttonGame = getByTestId('test-button');
+    // Act
+    fireEvent.click(buttonGame);
+    // Assert
+    expect(buttonGame).toHaveTextContent(expectedButtonText);
+    expect(timer.children.length).toEqual(1);
+    expect(timer).toHaveTextContent(expectedTime);
   });
 });

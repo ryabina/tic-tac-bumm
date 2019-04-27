@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 const StyledTimer = styled.p`
  color: "000";
- margin-top: 20px;
+ margin-top: 10px;
 `;
 
 const Timer = () => {
   return (
-    <StyledTimer data-testid="test-timer"> 23:11 </StyledTimer>
+    <StyledTimer> 23:11 </StyledTimer>
   );
 };
 
