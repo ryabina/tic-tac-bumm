@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Card from '../atoms/Card';
-import Timer from '../atoms/Timer';
-
 
 const Button = styled.button`
   margin-top: 10px;
@@ -14,6 +12,10 @@ const Button = styled.button`
   padding: 0 20px;
   font-size: 16px;
   font-weight: bold;
+`;
+
+const Timer = styled.p`
+color: "000";
 `;
 
 const Game = () => {
@@ -35,10 +37,9 @@ const Game = () => {
       </Button>
       <div data-testid="test-timer">
         { isStarted
-          && <Timer />
+        && <Timer> {Math.random()} </Timer>
         }
       </div>
-
     </>
   );
 };

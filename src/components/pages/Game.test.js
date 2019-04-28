@@ -30,11 +30,16 @@ describe('GamePage', () => {
     const expectedButtonText = 'Pause';
     const expectedTime = '23:11';
     const buttonGame = getByTestId('test-button');
+
+    const mockMathRandom = jest.fn(() => expectedTime );
+    Math.random.mockImplementation = mockMathRandom;
+
     // Act
     fireEvent.click(buttonGame);
     // Assert
     expect(buttonGame).toHaveTextContent(expectedButtonText);
     expect(timer.children.length).toEqual(1);
     expect(timer).toHaveTextContent(expectedTime);
+    expect(mockMathRandom).toHaveBeenCalled();
   });
 });
