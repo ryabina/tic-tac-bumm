@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Card from '../atoms/Card';
+import generateRandomTime from '../../helpers/timerHelper';
 
 const Button = styled.button`
   margin-top: 10px;
@@ -37,7 +38,7 @@ const Game = () => {
       </Button>
       <div data-testid="test-timer">
         { isStarted
-        && <Timer> {Math.random()} </Timer>
+        && <Timer> { generateRandomTime() } </Timer>
         }
       </div>
     </>
