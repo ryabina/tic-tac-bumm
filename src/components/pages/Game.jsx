@@ -38,7 +38,11 @@ const Game = () => {
       </Button>
       <div data-testid="test-timer">
         { isStarted
-        && <Timer> { generateRandomTime() } </Timer>
+        && (
+        <Timer>
+          { generateRandomTime() }
+        </Timer>
+        )
         }
       </div>
     </>

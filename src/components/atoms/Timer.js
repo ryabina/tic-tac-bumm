@@ -6,5 +6,5 @@ const StyledTimer = styled.p`
 `;
 
 const Timer = () => (
-  <StyledTimer> </StyledTimer>
+  <StyledTimer />
 );
