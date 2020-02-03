@@ -16,6 +16,7 @@
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-one-expression-per-line": [1, { "allow": "single-child" }],
     "react/prop-types": 0,
     "global-require": "warn",
     "no-underscore-dangle": [2, { "allow": [ "__STORE__" ] }],

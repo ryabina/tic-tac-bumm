@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Card from '../atoms/Card';
-import generateRandomTime from '../../helpers/timerHelper';
+import Timer from '../atoms/Timer';
+// import generateRandomTime from '../../helpers/timerHelper';
 
 const Button = styled.button`
   margin-top: 10px;
@@ -15,9 +16,9 @@ const Button = styled.button`
   font-weight: bold;
 `;
 
-const Timer = styled.p`
-color: "000";
-`;
+// const Timer = styled.p`
+// color: "000";
+// `;
 
 const Game = () => {
   const [isStarted, setIsStarted] = useState(false);
@@ -37,13 +38,8 @@ const Game = () => {
         {isStarted ? 'Pause' : 'Start'}
       </Button>
       <div data-testid="test-timer">
-        { isStarted
-        && (
-        <Timer>
-          { generateRandomTime() }
-        </Timer>
-        )
-        }
+        { isStarted && (
+        <Timer />)}
       </div>
     </>
   );

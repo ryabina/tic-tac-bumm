@@ -1,7 +1,6 @@
 import React from 'react';
-import 'jest-dom/extend-expect';
-import 'react-testing-library/cleanup-after-each';
-import { render, fireEvent } from 'react-testing-library';
+import '@testing-library/jest-dom/extend-expect';
+import { render, fireEvent } from '@testing-library/react';
 import genarateRandomTime from '../../helpers/timerHelper';
 import Game from './Game';
 
@@ -49,4 +48,3 @@ describe('GamePage', () => {
     // Assert
   });
 });
-
