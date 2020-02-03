@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 // import Timer from './Timer';
 // import genarateRandomTime from "../../helpers/timerHelper";
