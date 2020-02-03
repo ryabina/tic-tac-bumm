@@ -18,7 +18,6 @@ describe('GamePage', () => {
     const timer = getByTestId('test-timer');
     // Act
     const buttonGame = getByTestId('test-button');
-    // Act
     // Assert
     expect(buttonGame).toHaveTextContent(expectedButtonText);
     expect(timer.children.length).toEqual(0);
@@ -32,8 +31,8 @@ describe('GamePage', () => {
     const expectedButtonText = 'Pause';
 
     const expectedTime = '5';
-    const mockGenerate = jest.fn(() => expectedTime);
-    genarateRandomTime.mockImplementation(mockGenerate);
+    const mockGenerateTime = jest.fn(() => expectedTime);
+    genarateRandomTime.mockImplementation(mockGenerateTime);
 
     const buttonGame = getByTestId('test-button');
     // Act
@@ -43,4 +42,11 @@ describe('GamePage', () => {
     expect(timer.children.length).toEqual(1);
     expect(timer).toHaveTextContent(expectedTime);
   });
+
+  test('game pauses when time is off', () => {
+    // Arrange
+    // Act
+    // Assert
+  });
 });
+
