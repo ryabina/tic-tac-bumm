@@ -27,6 +27,10 @@ const Game = () => {
     setIsStarted(!isStarted);
   };
 
+  const stopGame = () => {
+    setIsStarted(false);
+  };
+
   const cardText = 'ДНА';
   return (
     <>
@@ -39,7 +43,7 @@ const Game = () => {
       </Button>
       <div data-testid="test-timer">
         { isStarted && (
-        <Timer />)}
+        <Timer stopGame={stopGame}/>)}
       </div>
     </>
   );
