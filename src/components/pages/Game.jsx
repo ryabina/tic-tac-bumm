@@ -43,7 +43,7 @@ const Game = () => {
       </Button>
       <div data-testid="test-timer">
         { isStarted && (
-        <Timer stopGame={stopGame}/>)}
+        <Timer stopGame={stopGame} />)}
       </div>
     </>
   );

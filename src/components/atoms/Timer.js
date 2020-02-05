@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import generateRandomTime from '../../helpers/timerHelper';
 
@@ -13,14 +13,15 @@ const Timer = (props) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       stopGame();
-    }, randomTime*1000);
+    }, randomTime * 1000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [randomTime, stopGame]);
 
   return (
-  <StyledTimer>
-    { randomTime }
-  </StyledTimer>
-);};
+    <StyledTimer>
+      { randomTime }
+    </StyledTimer>
+  );
+};
 
 export default Timer;
