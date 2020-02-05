@@ -9,6 +9,7 @@ jest.mock('../../helpers/timerHelper');
 describe('GamePage', () => {
   beforeEach(() => {
     jest.resetModules();
+    jest.useFakeTimers();
   });
 
   test('should have start in button text', () => {
@@ -44,7 +45,20 @@ describe('GamePage', () => {
 
   test('game pauses when time is off', () => {
     // Arrange
+    const { getByTestId } = render(<Game />);
+    const timer = getByTestId('test-timer');
+    const expectedButtonText = 'Start';
+
+    const expectedTime = '5';
+    const mockGenerateTime = jest.fn(() => expectedTime);
+    genarateRandomTime.mockImplementation(mockGenerateTime);
+
+    const buttonGame = getByTestId('test-button');
+    fireEvent.click(buttonGame);
     // Act
+    jest.runAllTimers();
     // Assert
+    expect(buttonGame).toHaveTextContent(expectedButtonText);
+    expect(timer.children.length).toEqual(0);
   });
 });
