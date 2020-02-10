@@ -9,7 +9,11 @@ jest.mock('../../helpers/timerHelper');
 describe('GamePage', () => {
   beforeEach(() => {
     jest.resetModules();
+    jest.restoreAllMocks();
+    jest.resetAllMocks();
     jest.useFakeTimers();
+  });
+  afterEach(() => {
     jest.clearAllMocks();
   });
 
@@ -31,9 +35,9 @@ describe('GamePage', () => {
     // Arrange
     const setState = jest.fn();
     const useStateSpy = jest.spyOn(React, 'useState');
-    useStateSpy.mockImplementation((init) => [init, setState]);
+    useStateSpy.mockImplementation(init => [init, setState]);
 
-    const { getByTestId } = render(<Game/>);
+    const { getByTestId } = render(<Game />);
     const buttonAddPlayers = getByTestId('test-add-players-button');
 
     // Act
@@ -79,6 +83,4 @@ describe('GamePage', () => {
     expect(buttonGame).toHaveTextContent(expectedButtonText);
     expect(timer.children.length).toEqual(0);
   });
-
-
 });

@@ -1,8 +1,8 @@
 import React from 'react';
+import Modal from 'react-modal';
 import styled from 'styled-components';
 import Card from '../atoms/Card';
 import Timer from '../atoms/Timer';
-import Modal from 'react-modal';
 
 const Button = styled.button`
   margin-top: 10px;
@@ -32,8 +32,8 @@ const Game = () => {
   };
 
   const openModal = () => {
-    console.log('suka');
     setIsOpen(true);
+    console.log(isOpen);
   };
 
   const cardText = 'ДНА';
