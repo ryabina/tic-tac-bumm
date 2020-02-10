@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Card from '../atoms/Card';
 import Timer from '../atoms/Timer';
-// import generateRandomTime from '../../helpers/timerHelper';
+import Modal from 'react-modal';
 
 const Button = styled.button`
   margin-top: 10px;
@@ -21,14 +21,19 @@ const Button = styled.button`
 // `;
 
 const Game = () => {
-  const [isStarted, setIsStarted] = useState(false);
-
+  const [isStarted, setIsStarted] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
   const handleClick = () => {
     setIsStarted(!isStarted);
   };
 
   const stopGame = () => {
     setIsStarted(false);
+  };
+
+  const openModal = () => {
+    console.log('suka');
+    setIsOpen(true);
   };
 
   const cardText = 'ДНА';
@@ -41,6 +46,14 @@ const Game = () => {
       >
         {isStarted ? 'Pause' : 'Start'}
       </Button>
+      <Button
+        type="button"
+        onClick={() => openModal()}
+        data-testid="test-add-players-button"
+      >
+        Add players
+      </Button>
+      <Modal data-testid="test-modal" />
       <div data-testid="test-timer">
         { isStarted && (
         <Timer stopGame={stopGame} />)}

@@ -1,3 +1,3 @@
-const genarateRandomTime = () => Math.floor(Math.random() * 300) + 5;
+const generateRandomTime = () => Math.floor(Math.random() * 300) + 5;
 
-export default genarateRandomTime;
+export default generateRandomTime;
