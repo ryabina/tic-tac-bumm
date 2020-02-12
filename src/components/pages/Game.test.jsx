@@ -8,30 +8,28 @@ jest.mock('../../helpers/timerHelper');
 
 describe('GamePage', () => {
   beforeEach(() => {
-    jest.resetModules();
     jest.restoreAllMocks();
-    jest.resetAllMocks();
     jest.useFakeTimers();
-  });
-  afterEach(() => {
-    jest.clearAllMocks();
   });
 
   test('should have start in button text and add players button', () => {
+    // Arrange
     const expectedButtonText = 'Start';
     const expectedAddPlayersText = 'Add players';
+
+    // Act
     const { getByTestId } = render(<Game />);
     const timer = getByTestId('test-timer');
     const addPlayersButton = getByTestId('test-add-players-button');
-    // Act
     const buttonGame = getByTestId('test-button');
+
     // Assert
     expect(buttonGame).toHaveTextContent(expectedButtonText);
     expect(timer.children.length).toEqual(0);
     expect(addPlayersButton).toHaveTextContent(expectedAddPlayersText);
   });
 
-  test('should open modal when adding players', () => {
+  test('should change open modal state when adding players', () => {
     // Arrange
     const setState = jest.fn();
     const useStateSpy = jest.spyOn(React, 'useState');

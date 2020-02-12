@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import styled from 'styled-components';
 import Card from '../atoms/Card';
 import Timer from '../atoms/Timer';
+import AddPlayersForm from '../organisms/AddPlayersForm';
 
 const Button = styled.button`
   margin-top: 10px;
@@ -33,7 +34,6 @@ const Game = () => {
 
   const openModal = () => {
     setIsOpen(true);
-    console.log(isOpen);
   };
 
   const cardText = 'ДНА';
@@ -53,7 +53,10 @@ const Game = () => {
       >
         Add players
       </Button>
-      <Modal data-testid="test-modal" />
+      <Modal isOpen={isOpen}>
+        <AddPlayersForm />
+        <button type="button"> button </button>
+      </Modal>
       <div data-testid="test-timer">
         { isStarted && (
         <Timer stopGame={stopGame} />)}
