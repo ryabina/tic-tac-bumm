@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render } from '@testing-library/react';
+import {fireEvent, render} from '@testing-library/react';
 import AddPlayersForm from './AddPlayersForm';
 
 describe('Add players form', () => {
@@ -9,10 +9,24 @@ describe('Add players form', () => {
     const expectedAddAnotherPlayerText = 'Add player';
     // Act
     const { getByTestId } = render(<AddPlayersForm />);
-    const playerName = getByTestId('test-player-name');
+    const playerNameInput = getByTestId('test-player-name-input');
     const addAnotherPlayer = getByTestId('test-add-another-player');
     // Assert
-    expect(playerName).toBeTruthy();
+    expect(playerNameInput).toBeTruthy();
     expect(addAnotherPlayer).toHaveTextContent(expectedAddAnotherPlayerText);
+  });
+  test('should add player happy path', () => {
+    // Arrange
+    const expectedName = 'Blahblah';
+    const { getByTestId, queryByText } = render(<AddPlayersForm />);
+    const playerNameInput = getByTestId('test-player-name-input');
+    const addAnotherPlayer = getByTestId('test-add-another-player');
+    fireEvent.change(playerNameInput, {target: { value: expectedName }})
+    // Act
+    fireEvent.click(addAnotherPlayer);
+    const playerName = queryByText(expectedName);
+    // Assert
+    expect(playerName).toHaveTextContent(expectedName);
+    expect(playerNameInput).toHaveTextContent('');
   });
 });

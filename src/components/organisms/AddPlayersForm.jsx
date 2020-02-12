@@ -7,7 +7,7 @@ const AddPlayersForm = () => (
       name="name"
       placeholder="Enter player's name"
       type="text"
-      data-testid="test-player-name"
+      data-testid="test-player-name-input"
     />
     <button
       type="button"
