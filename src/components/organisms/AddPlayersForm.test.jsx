@@ -8,12 +8,12 @@ describe('Add players form', () => {
     // Arrange
     const expectedAddAnotherPlayerText = 'Add player';
     // Act
-    const { getByTestId } = render(<AddPlayersForm />);
+    const { getByTestId, queryByText } = render(<AddPlayersForm />);
     const playerNameInput = getByTestId('test-player-name-input');
-    const addAnotherPlayer = getByTestId('test-add-another-player');
+    const addAnotherPlayer = queryByText(expectedAddAnotherPlayerText);
     // Assert
     expect(playerNameInput).toBeTruthy();
-    expect(addAnotherPlayer).toHaveTextContent(expectedAddAnotherPlayerText);
+    expect(addAnotherPlayer).not.toBeNull();;
   });
   test('should add player happy path', () => {
     // Arrange
@@ -26,7 +26,7 @@ describe('Add players form', () => {
     fireEvent.click(addAnotherPlayer);
     const playerName = queryByText(expectedName);
     // Assert
-    expect(playerName).toHaveTextContent(expectedName);
+    expect(playerName).not.toBeNull();;
     expect(playerNameInput).toHaveTextContent('');
   });
 });

@@ -1,6 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Button from "../atoms/Button";
 
-const AddPlayersForm = () => (
+const AddPlayersForm = (props) => {
+  const [players, setPlayers] = useState([]);
+  const [newPlayer, setNewPlayer] = useState('');
+
+
+  const handleChange = (event) => {
+    setNewPlayer(event.target.value);
+    console.log("new player:", newPlayer);
+  };
+
+  const handleClick = () => {
+    console.log('button clicked!');
+    setPlayers([players, newPlayer]);
+    setNewPlayer('');
+    console.log("players:", players);
+  };
+  return (
   <div>
     <input
       id="name"
@@ -8,14 +25,15 @@ const AddPlayersForm = () => (
       placeholder="Enter player's name"
       type="text"
       data-testid="test-player-name-input"
+      onChange={handleChange}
     />
-    <button
+    <Button
       type="button"
-      data-testid="test-add-another-player"
-    >
-      Add player
-    </button>
+      onClick={handleClick}
+      text="Add player"
+    />
   </div>
-);
+  );
+};
 
 export default AddPlayersForm;
