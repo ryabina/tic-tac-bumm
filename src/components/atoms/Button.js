@@ -10,6 +10,11 @@ const StyledButton = styled.button`
   padding: 0 20px;
   font-size: 16px;
   font-weight: bold;
+  cursor: pointer;
+  :disabled {
+    opacity: 0.65;
+    cursor: not-allowed
+  }
 `;
 
 const Button = (props) => {
