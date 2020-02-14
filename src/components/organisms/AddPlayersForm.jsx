@@ -13,11 +13,15 @@ const AddPlayersForm = () => {
   const clearInput = () => {
     document.getElementById('name').value = '';
   };
-  const handleClick = () => {
+  const handleSavePlayer = () => {
     setPlayers([players, newPlayer]);
     setNewPlayer('');
     setIsAddButton(false);
     clearInput();
+  };
+
+  const handleAddAnotherPlayer = () => {
+    setIsAddButton(true);
   };
 
   return (
@@ -39,7 +43,7 @@ const AddPlayersForm = () => {
           />
           <Button
             type="button"
-            onClick={handleClick}
+            onClick={handleSavePlayer}
             text="Save player"
             disabled={(newPlayer === '')}
           />
@@ -49,6 +53,7 @@ const AddPlayersForm = () => {
       <Button
         type="button"
         text="Add another player"
+        onClick={handleAddAnotherPlayer}
       />
       )}
     </div>
