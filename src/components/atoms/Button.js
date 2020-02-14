@@ -13,12 +13,10 @@ const StyledButton = styled.button`
 `;
 
 const Button = (props) => {
-  const { text, onClick } = props;
+  const { text, onClick, disabled } = props;
   return (
-    <StyledButton onClick={onClick}>
-      {' '}
+    <StyledButton onClick={onClick} disabled={disabled}>
       { text }
-      {' '}
     </StyledButton>
   );
 };
