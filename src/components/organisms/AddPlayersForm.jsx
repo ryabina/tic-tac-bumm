@@ -1,38 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import Button from "../atoms/Button";
+import React, { useState } from 'react';
+import Button from '../atoms/Button';
 
-const AddPlayersForm = (props) => {
+const AddPlayersForm = () => {
   const [players, setPlayers] = useState([]);
   const [newPlayer, setNewPlayer] = useState('');
 
 
   const handleChange = (event) => {
     setNewPlayer(event.target.value);
-    console.log("new player:", newPlayer);
   };
 
+  const clearInput = () => {
+    document.getElementById('name').value = '';
+  };
   const handleClick = () => {
-    console.log('button clicked!');
     setPlayers([players, newPlayer]);
     setNewPlayer('');
-    console.log("players:", players);
+    clearInput();
   };
   return (
-  <div>
-    <input
-      id="name"
-      name="name"
-      placeholder="Enter player's name"
-      type="text"
-      data-testid="test-player-name-input"
-      onChange={handleChange}
-    />
-    <Button
-      type="button"
-      onClick={handleClick}
-      text="Add player"
-    />
-  </div>
+    <div>
+      {!(players.length === 0) && (
+      <div>
+        {' '}
+        {players}
+        {' '}
+      </div>
+      )}
+      <input
+        id="name"
+        name="name"
+        placeholder="Enter player's name"
+        type="text"
+        data-testid="test-player-name-input"
+        onChange={handleChange}
+      />
+      <Button
+        type="button"
+        onClick={handleClick}
+        text="Save player"
+      />
+    </div>
   );
 };
 

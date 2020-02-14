@@ -13,9 +13,13 @@ const StyledButton = styled.button`
 `;
 
 const Button = (props) => {
-  const { text, onClick} = props;
+  const { text, onClick } = props;
   return (
-    <StyledButton onClick={onClick}> { text } </StyledButton>
+    <StyledButton onClick={onClick}>
+      {' '}
+      { text }
+      {' '}
+    </StyledButton>
   );
 };
 
