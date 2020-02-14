@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import {fireEvent, render} from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import AddPlayersForm from './AddPlayersForm';
 
 describe('Add players form', () => {
@@ -54,7 +54,7 @@ describe('Add players form', () => {
     const { getByTestId, queryByText } = render(<AddPlayersForm />);
     const playerNameInput = getByTestId('test-player-name-input');
     const savePlayer = queryByText(expectedSavePlayerText);
-    fireEvent.change(playerNameInput, {target: {value: expectedName}});
+    fireEvent.change(playerNameInput, { target: { value: expectedName } });
     fireEvent.click(savePlayer);
 
     const addAnotherPlayer = queryByText('Add another player');
