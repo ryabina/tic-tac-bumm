@@ -27,8 +27,14 @@ const AddPlayersForm = () => {
   return (
     <div>
       {!(players.length === 0) && (
-      <div>
-        {players}
+      <div data-testid="test-players-names">
+        {players.map(player => (
+          <div>
+            {' '}
+            {player}
+            {' '}
+          </div>
+        ))}
       </div>
       )}
       { isAddButton && (

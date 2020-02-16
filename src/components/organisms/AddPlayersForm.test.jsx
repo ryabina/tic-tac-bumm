@@ -48,7 +48,7 @@ describe('Add players form', () => {
     expect(addAnotherPlayer).toBe(null);
   });
 
-  test('should open open input and save button on Add Another Player button', () => {
+  test('should open input and save button on Add Another Player button', () => {
     // Arrange
     const expectedName = 'Blahblah';
     const { getByTestId, queryByText } = render(<AddPlayersForm />);
@@ -65,5 +65,27 @@ describe('Add players form', () => {
     // Assert
     expect(savePlayerAfterClick).toBeInTheDocument();
     expect(playerNameAfterClick).toBeInTheDocument();
+  });
+  test('should print players on separate lines', () => {
+    // Arrange
+    const expectedName = 'Blahblah';
+    const { getByTestId, queryByText } = render(<AddPlayersForm />);
+
+    const playerNameInput = getByTestId('test-player-name-input');
+    const savePlayer = queryByText(expectedSavePlayerText);
+
+    fireEvent.change(playerNameInput, { target: { value: expectedName } });
+    fireEvent.click(savePlayer);
+
+    const addAnotherPlayer = queryByText('Add another player');
+
+    fireEvent.click(addAnotherPlayer);
+    fireEvent.change(getByTestId('test-player-name-input'), { target: { value: expectedName } });
+
+    // Act
+    fireEvent.click(queryByText(expectedSavePlayerText));
+    const playersNames = getByTestId('test-players-names');
+    // Assert
+    expect(playersNames.children.length).toBe(2);
   });
 });
