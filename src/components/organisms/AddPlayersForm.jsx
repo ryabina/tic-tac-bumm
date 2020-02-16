@@ -14,7 +14,7 @@ const AddPlayersForm = () => {
     document.getElementById('name').value = '';
   };
   const handleSavePlayer = () => {
-    setPlayers([players, newPlayer]);
+    setPlayers(players.concat(newPlayer));
     setNewPlayer('');
     setIsAddButton(false);
     clearInput();
