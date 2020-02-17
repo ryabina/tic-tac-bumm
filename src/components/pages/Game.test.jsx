@@ -57,6 +57,7 @@ describe('GamePage', () => {
     const buttonGame = getByTestId('test-button');
     // Act
     fireEvent.click(buttonGame);
+
     // Assert
     expect(buttonGame).toHaveTextContent(expectedButtonText);
     expect(timer.children.length).toEqual(1);

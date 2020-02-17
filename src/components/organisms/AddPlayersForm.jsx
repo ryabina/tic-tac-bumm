@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Button from '../atoms/Button';
 
-const AddPlayersForm = () => {
+const AddPlayersForm = (props) => {
+  const { closeModal } = props;
+
   const [players, setPlayers] = useState([]);
   const [newPlayer, setNewPlayer] = useState('');
   const [isAddButton, setIsAddButton] = useState(true);
@@ -30,9 +32,7 @@ const AddPlayersForm = () => {
       <div data-testid="test-players-names">
         {players.map(player => (
           <div>
-            {' '}
             {player}
-            {' '}
           </div>
         ))}
       </div>
@@ -62,6 +62,11 @@ const AddPlayersForm = () => {
         onClick={handleAddAnotherPlayer}
       />
       )}
+      <Button
+        type="button"
+        text="Ok"
+        onClick={closeModal}
+      />
     </div>
   );
 };

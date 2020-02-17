@@ -36,6 +36,10 @@ const Game = () => {
     setIsOpen(true);
   };
 
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   const cardText = 'ДНА';
   return (
     <>
@@ -54,8 +58,7 @@ const Game = () => {
         Add players
       </Button>
       <Modal isOpen={isOpen}>
-        <AddPlayersForm />
-        <button type="button"> button </button>
+        <AddPlayersForm closeModal={closeModal} />
       </Modal>
       <div data-testid="test-timer">
         { isStarted && (

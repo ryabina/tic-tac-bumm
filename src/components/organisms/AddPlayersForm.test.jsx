@@ -6,15 +6,18 @@ import AddPlayersForm from './AddPlayersForm';
 describe('Add players form', () => {
   const expectedSavePlayerText = 'Save player';
   const expectedAddAnotherPlayerText = 'Add another player';
+
   test('should have input and add player button', () => {
     // Arrange
     // Act
     const { getByTestId, queryByText } = render(<AddPlayersForm />);
     const playerNameInput = getByTestId('test-player-name-input');
     const savePlayer = queryByText(expectedSavePlayerText);
+    const ok = queryByText('Ok');
     // Assert
     expect(playerNameInput).toBeTruthy();
     expect(savePlayer).not.toBeNull();
+    expect(ok).toBeTruthy();
   });
   test('should add player happy path', () => {
     // Arrange
@@ -66,6 +69,7 @@ describe('Add players form', () => {
     expect(savePlayerAfterClick).toBeInTheDocument();
     expect(playerNameAfterClick).toBeInTheDocument();
   });
+
   test('should print players on separate lines', () => {
     // Arrange
     const expectedName = 'Blahblah';
@@ -87,5 +91,18 @@ describe('Add players form', () => {
     const playersNames = getByTestId('test-players-names');
     // Assert
     expect(playersNames.children.length).toBe(2);
+  });
+
+  test('should close modal when clicking OK', () => {
+    // Arrange
+    const mockCloseModal = jest.fn();
+    const { getByText } = render(<AddPlayersForm closeModal={mockCloseModal} />);
+
+    const ok = getByText('Ok');
+
+    // Act
+    fireEvent.click(ok);
+    // Assert
+    expect(mockCloseModal).toBeCalled();
   });
 });
