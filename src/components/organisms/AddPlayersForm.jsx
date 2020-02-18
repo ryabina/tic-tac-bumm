@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../atoms/Button';
+import GameSettingsSerice from '../../helpers/GameSettingsService';
 
 const AddPlayersForm = (props) => {
   const { closeModal } = props;
@@ -24,6 +25,11 @@ const AddPlayersForm = (props) => {
 
   const handleAddAnotherPlayer = () => {
     setIsAddButton(true);
+  };
+
+  const handleOkandExit = () => {
+    GameSettingsSerice.savePlayers(players);
+    closeModal();
   };
 
   return (
@@ -65,7 +71,7 @@ const AddPlayersForm = (props) => {
       <Button
         type="button"
         text="Ok"
-        onClick={closeModal}
+        onClick={handleOkandExit}
       />
     </div>
   );
