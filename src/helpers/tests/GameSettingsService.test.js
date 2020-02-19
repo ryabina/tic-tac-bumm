@@ -31,11 +31,11 @@ describe('game settings service', () => {
     // Arrange
     const expectedPlayersWithScores = {
       'Leyla!': 0,
-      'Johny': 0,
-      'John': 0,
-      '<3' :0
+      Johny: 0,
+      John: 0,
+      '<3': 0,
     };
-    localStorage.__STORE__ = {expectedPlayersWithScores};
+    localStorage.__STORE__ = { expectedPlayersWithScores };
     // Act
     const actualPlayersWithScores = gameSettingsService.getPlayers();
     // Assert

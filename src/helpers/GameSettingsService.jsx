@@ -7,7 +7,7 @@ export default class GameSettingsService {
     players.forEach(player => this.savePlayer(player));
   }
 
-  static getPlayers(){
+  static getPlayers() {
     return Object.entries(localStorage);
   }
 }
