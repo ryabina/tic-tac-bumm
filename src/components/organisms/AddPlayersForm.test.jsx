@@ -12,7 +12,7 @@ describe('Add players form', () => {
 
   beforeEach(() => {
     jest.restoreAllMocks();
-});  
+  });
   test('should have input and add player button', () => {
     // Arrange
     // Act
@@ -116,7 +116,7 @@ describe('Add players form', () => {
     // Arrange
     const expectedName = 'Leyla!';
     const mockCloseModal = jest.fn();
-    
+
     const mockSavePlayers = jest.fn();
     GameSettingService.savePlayers.mockImplementation(mockSavePlayers);
 
@@ -127,14 +127,13 @@ describe('Add players form', () => {
     fireEvent.change(playerNameInput, { target: { value: expectedName } });
     fireEvent.click(savePlayer);
 
-    const expectedPlayers = [expectedName]
+    const expectedPlayers = [expectedName];
     const ok = getByText('Ok');
-    
+
     // Act
     fireEvent.click(ok);
     // Assert
     expect(mockSavePlayers).toBeCalledWith(expectedPlayers);
     expect(mockCloseModal).toBeCalled();
   });
-
 });
