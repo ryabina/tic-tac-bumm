@@ -44,8 +44,5 @@
     "babel-jest": "^24.9.0",
     "eslint-plugin-react-hooks": "^1.6.0",
     "jest": "24.9.0"
-  },
-  "jest": {
-    "setupFiles": ["jest-localstorage-mock"]
   }
 }
