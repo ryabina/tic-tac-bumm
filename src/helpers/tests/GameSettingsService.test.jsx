@@ -29,16 +29,13 @@ describe('game settings service', () => {
 
   test('should get players from localstorage', () => {
     // Arrange
-    const expectedPlayersWithScores = {
-      'Leyla!': 0,
-      'Johny': 0,
-      'John': 0,
-      '<3': 0,
-    };
-    localStorage.__STORE__ = { expectedPlayersWithScores };
+    const expectedPlayerName = 'Leyla!';
+    const expectedPlayerScore = '0';
+    localStorage.setItem(expectedPlayerName, expectedPlayerScore);
     // Act
-    const actualPlayersWithScores = gameSettingsService.getPlayers();
+    const actualPlayerScore = gameSettingsService.getPlayers();
     // Assert
-    expect(actualPlayersWithScores).toEqual(expectedPlayersWithScores);
+
+    expect(actualPlayerScore).toEqual([[expectedPlayerName, expectedPlayerScore]]);
   });
 });
