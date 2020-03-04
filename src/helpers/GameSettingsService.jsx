@@ -1,13 +1,11 @@
 export default class GameSettingsService {
-  static savePlayer(player) {
-    localStorage.setItem(player, '0');
-  }
 
   static savePlayers(players) {
-    players.forEach(player => this.savePlayer(player));
+    localStorage.setItem('players', JSON.stringify(players));
   }
 
   static getPlayers() {
-    return Object.entries(localStorage);
+    const players = JSON.parse(localStorage.getItem('players'));
+    return players;
   }
 }

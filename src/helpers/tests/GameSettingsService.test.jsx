@@ -6,36 +6,47 @@ describe('game settings service', () => {
     localStorage.setItem.mockClear();
   });
 
-  test('should save player to localstorage', () => {
-    // Arrange
-    const expectedPlayerName = 'Leyla!';
-    const expectedPlayerCards = '0';
-
-    // Act
-    gameSettingsService.savePlayer(expectedPlayerName);
-    // Assert
-    expect(localStorage.setItem).toBeCalledWith(expectedPlayerName, expectedPlayerCards);
-    expect(localStorage.__STORE__[expectedPlayerName]).toBe(expectedPlayerCards);
-  });
-
+ 
   test('should save all players to localstorage', () => {
     // Arrange
-    const expectedPlayers = ['Leyla!', 'Johny', 'John', '<3'];
+    const expectedPlayers = {
+      players: [
+          {
+              name: "Nikolya",
+              points: 0,
+          },
+          {
+              name: "Kamila",
+              points: 1,
+          },
+      ]
+    }; 
     // Act
     gameSettingsService.savePlayers(expectedPlayers);
     // Assert
-    expect(Object.keys(localStorage.__STORE__).length).toBe(expectedPlayers.length);
+    expect(Object.keys(localStorage.__STORE__).length).toBe(1);
   });
 
   test('should get players from localstorage', () => {
     // Arrange
-    const expectedPlayerName = 'Leyla!';
-    const expectedPlayerScore = '0';
-    localStorage.setItem(expectedPlayerName, expectedPlayerScore);
+    const expectedPlayers = {
+      players: [
+          {
+              name: "Nikolya",
+              points: 0,
+          },
+          {
+              name: "Kamila",
+              points: 1,
+          },
+      ]
+    }; 
+    const PLAYERS = 'players'
+    localStorage.setItem(PLAYERS, JSON.stringify(expectedPlayers));
     // Act
     const actualPlayerScore = gameSettingsService.getPlayers();
     // Assert
 
-    expect(actualPlayerScore).toEqual([[expectedPlayerName, expectedPlayerScore]]);
+    expect(actualPlayerScore).toEqual(expectedPlayers);
   });
 });

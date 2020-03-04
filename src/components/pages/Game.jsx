@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import styled from 'styled-components';
-import Card from '../atoms/Card';
+import Card from '../molecules/Card';
 import Timer from '../atoms/Timer';
 import AddPlayersForm from '../organisms/AddPlayersForm';
 
