@@ -25,6 +25,7 @@ describe('Add players form', () => {
     expect(savePlayer).not.toBeNull();
     expect(ok).toBeTruthy();
   });
+  
   test('should add player happy path', () => {
     // Arrange
     const expectedName = 'Blahblah';
@@ -118,7 +119,7 @@ describe('Add players form', () => {
     const mockCloseModal = jest.fn();
 
     const mockSavePlayers = jest.fn();
-    GameSettingService.savePlayers.mockImplementation(mockSavePlayers);
+    GameSettingService.savePlayersFirstTime.mockImplementation(mockSavePlayers);
 
     const { getByText, getByTestId } = render(<AddPlayersForm closeModal={mockCloseModal} />);
     const playerNameInput = getByTestId('test-player-name-input');

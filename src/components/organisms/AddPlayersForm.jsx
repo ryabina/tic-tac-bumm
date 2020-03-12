@@ -28,7 +28,7 @@ const AddPlayersForm = (props) => {
   };
 
   const handleOkandExit = () => {
-    GameSettingsSerice.savePlayers(players);
+    GameSettingsSerice.savePlayersFirstTime(players);
     closeModal();
   };
 
