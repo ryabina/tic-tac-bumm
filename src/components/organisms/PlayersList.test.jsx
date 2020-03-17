@@ -6,8 +6,7 @@ import PlayersList from './PlayersList';
 describe('PlayersList', () => {
   test('should render players', () => {
     // Arrange
-    const expectedPlayersList = {
-      players: [
+    const expectedPlayersList = [
         {
           name: 'Nikolya',
           points: 0,
@@ -16,15 +15,15 @@ describe('PlayersList', () => {
           name: 'Kamila',
           points: 1,
         },
-      ],
-    };
+      ];
+      expectedPlayersList.map(player => console.log(player.name, player.points));
     // Act
     const { getByTestId } = render(<PlayersList playersList={expectedPlayersList} />);
     const playersList = getByTestId('test-players-list');
     const player = getByTestId('test-player');
     // Assert
     expect(playersList).toBeInTheDocument();
-    expect(playersList.children.length).toBe(5);
+    expect(playersList.children.length).toBe(2);
     expect(player).toBeDefined();
   });
 });
