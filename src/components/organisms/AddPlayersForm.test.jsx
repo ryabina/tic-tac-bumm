@@ -25,7 +25,7 @@ describe('Add players form', () => {
     expect(savePlayer).not.toBeNull();
     expect(ok).toBeTruthy();
   });
-  
+
   test('should add player happy path', () => {
     // Arrange
     const expectedName = 'Blahblah';

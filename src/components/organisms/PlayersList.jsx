@@ -1,19 +1,13 @@
 import React from 'react';
-import styled from 'styled-components'; 
+import styled from 'styled-components';
 import Player from '../molecules/Player';
 
-const List = styled.div``;
+const List = styled.span``;
 
 const PlayersList = ({ playersList }) => (
-    <List data-testid='test-players-list'>
-      { playersList.map(player => (
-        <Player 
-          data-testid='test-player' 
-          name={player.name} 
-          points={player.points} 
-        />
-      ))}
-    </List>
-  );
+  <List data-testid="test-players-list">
+    { playersList.map(player => (<Player player={player} />))}
+  </List>
+);
 
 export default PlayersList;
