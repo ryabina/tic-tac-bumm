@@ -103,7 +103,7 @@ describe('Add players form', () => {
   test('should close modal when clicking OK', () => {
     // Arrange
     const mockCloseModal = jest.fn();
-    const mockSetArePlayersEntered = jest.fn(); 
+    const mockSetArePlayersEntered = jest.fn();
     const { getByText } = render(<AddPlayersForm closeModal={mockCloseModal} setArePlayersEntered={mockSetArePlayersEntered} />);
 
     const ok = getByText('Ok');
@@ -139,6 +139,6 @@ describe('Add players form', () => {
     // Assert
     expect(mockSavePlayersFirstTime).toBeCalledWith(expectedPlayers);
     expect(mockCloseModal).toBeCalled();
-    expect(mockSetArePlayersEntered).toBeCalled(); 
+    expect(mockSetArePlayersEntered).toBeCalled();
   });
 });

@@ -37,7 +37,7 @@ const AddPlayersForm = (props) => {
     <div>
       {!(players.length === 0) && (
       <div data-testid="test-players-names">
-        {players.map(player => (
+        {players.map((player) => (
           <div>
             {player}
           </div>

@@ -39,7 +39,7 @@ const Game = () => {
   const closeModal = () => {
     setIsOpen(false);
   };
-  
+
   const setArePlayersEntered = () => {};
 
   const cardText = 'ДНА';

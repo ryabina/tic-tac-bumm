@@ -6,7 +6,7 @@ const List = styled.span``;
 
 const PlayersList = ({ playersList }) => (
   <List data-testid="test-players-list">
-    { playersList.map(player => (<Player player={player} />))}
+    { playersList.map((player) => (<Player player={player} />))}
   </List>
 );
 

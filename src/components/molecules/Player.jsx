@@ -7,7 +7,7 @@ const Points = styled.span``;
 
 const Player = ({ player }) => (
   <PlayerContainer data-testid="test-player">
-    <Name> {player.name } </Name>
+    <Name> {player.name} </Name>
     <Points> {player.points} </Points>
   </PlayerContainer>
 );
