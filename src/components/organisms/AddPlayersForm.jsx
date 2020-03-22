@@ -3,7 +3,7 @@ import Button from '../atoms/Button';
 import GameSettingsSerice from '../../helpers/GameSettingsService';
 
 const AddPlayersForm = (props) => {
-  const { closeModal } = props;
+  const { closeModal, setArePlayersEntered } = props;
 
   const [players, setPlayers] = useState([]);
   const [newPlayer, setNewPlayer] = useState('');
@@ -30,6 +30,7 @@ const AddPlayersForm = (props) => {
   const handleOkandExit = () => {
     GameSettingsSerice.savePlayersFirstTime(players);
     closeModal();
+    setArePlayersEntered();
   };
 
   return (

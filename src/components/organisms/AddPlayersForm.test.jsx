@@ -103,7 +103,8 @@ describe('Add players form', () => {
   test('should close modal when clicking OK', () => {
     // Arrange
     const mockCloseModal = jest.fn();
-    const { getByText } = render(<AddPlayersForm closeModal={mockCloseModal} />);
+    const mockSetArePlayersEntered = jest.fn(); 
+    const { getByText } = render(<AddPlayersForm closeModal={mockCloseModal} setArePlayersEntered={mockSetArePlayersEntered} />);
 
     const ok = getByText('Ok');
 
@@ -113,15 +114,16 @@ describe('Add players form', () => {
     expect(mockCloseModal).toBeCalled();
   });
 
-  test('should close modal and save players when clicking OK', () => {
-    // Arrange
+  test('should close modal, save players, and setArePlayersEntered when clicking OK, happy path', () => {
+    // Arrang
     const expectedName = 'Leyla!';
     const mockCloseModal = jest.fn();
+    const mockSetArePlayersEntered = jest.fn();
 
-    const mockSavePlayers = jest.fn();
-    GameSettingService.savePlayersFirstTime.mockImplementation(mockSavePlayers);
+    const mockSavePlayersFirstTime = jest.fn();
+    GameSettingService.savePlayersFirstTime.mockImplementation(mockSavePlayersFirstTime);
 
-    const { getByText, getByTestId } = render(<AddPlayersForm closeModal={mockCloseModal} />);
+    const { getByText, getByTestId } = render(<AddPlayersForm closeModal={mockCloseModal} setArePlayersEntered={mockSetArePlayersEntered} />);
     const playerNameInput = getByTestId('test-player-name-input');
     const savePlayer = getByText(expectedSavePlayerText);
 
@@ -133,8 +135,10 @@ describe('Add players form', () => {
 
     // Act
     fireEvent.click(ok);
+
     // Assert
-    expect(mockSavePlayers).toBeCalledWith(expectedPlayers);
+    expect(mockSavePlayersFirstTime).toBeCalledWith(expectedPlayers);
     expect(mockCloseModal).toBeCalled();
+    expect(mockSetArePlayersEntered).toBeCalled(); 
   });
 });
