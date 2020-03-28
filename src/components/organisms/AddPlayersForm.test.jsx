@@ -119,8 +119,8 @@ describe('Add players form', () => {
     const expectedName = 'Leyla!';
     const mockCloseModal = jest.fn();
     const mockSetArePlayersEntered = jest.fn();
-
     const mockSavePlayersFirstTime = jest.fn();
+
     GameSettingService.savePlayersFirstTime.mockImplementation(mockSavePlayersFirstTime);
 
     const { getByText, getByTestId } = render(<AddPlayersForm closeModal={mockCloseModal} setArePlayersEntered={mockSetArePlayersEntered} />);
@@ -139,6 +139,6 @@ describe('Add players form', () => {
     // Assert
     expect(mockSavePlayersFirstTime).toBeCalledWith(expectedPlayers);
     expect(mockCloseModal).toBeCalled();
-    expect(mockSetArePlayersEntered).toBeCalled();
+    expect(mockSetArePlayersEntered).toBeCalledWith(true);
   });
 });

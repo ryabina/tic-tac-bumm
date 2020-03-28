@@ -4,6 +4,10 @@ import styled from 'styled-components';
 import Card from '../molecules/Card';
 import Timer from '../atoms/Timer';
 import AddPlayersForm from '../organisms/AddPlayersForm';
+import GameSettingsService from '../../helpers/GameSettingsService';
+import PlayersList from '../organisms/PlayersList';
+
+const PlayersWrapper = styled.div``;
 
 const Button = styled.button`
   margin-top: 10px;
@@ -17,13 +21,10 @@ const Button = styled.button`
   font-weight: bold;
 `;
 
-// const Timer = styled.p`
-// color: "000";
-// `;
-
 const Game = () => {
   const [isStarted, setIsStarted] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState(false);
+  const [playersList, setPlayersList] = React.useState({});
   const handleClick = () => {
     setIsStarted(!isStarted);
   };
@@ -40,11 +41,19 @@ const Game = () => {
     setIsOpen(false);
   };
 
-  const setArePlayersEntered = () => {};
+  const setArePlayersEntered = (arePlayersEntered) => {
+    if (arePlayersEntered) {
+      setPlayersList(GameSettingsService.getPlayers());
+    }
+  };
 
   const cardText = 'ДНА';
   return (
     <>
+      <PlayersWrapper data-testid="test-players-list-wrapper">
+        { Object.keys(playersList).length > 0 && (
+        <PlayersList playersList={playersList} />)}
+      </PlayersWrapper>
       <Card text={cardText} />
       <Button
         onClick={handleClick}

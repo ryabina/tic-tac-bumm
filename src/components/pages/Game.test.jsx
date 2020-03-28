@@ -18,15 +18,17 @@ describe('GamePage', () => {
     const expectedAddPlayersText = 'Add players';
 
     // Act
-    const { getByTestId } = render(<Game />);
+    const { getByTestId, queryByTestId } = render(<Game />);
     const timer = getByTestId('test-timer');
     const addPlayersButton = getByTestId('test-add-players-button');
     const buttonGame = getByTestId('test-button');
+    const playersList = queryByTestId('test-players-list-wrapper');
 
     // Assert
     expect(buttonGame).toHaveTextContent(expectedButtonText);
     expect(timer.children.length).toEqual(0);
     expect(addPlayersButton).toHaveTextContent(expectedAddPlayersText);
+    expect(playersList).toBeInTheDocument();
   });
 
   test('should change open modal state when adding players', () => {

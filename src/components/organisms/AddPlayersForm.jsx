@@ -30,7 +30,7 @@ const AddPlayersForm = (props) => {
   const handleOkandExit = () => {
     GameSettingsSerice.savePlayersFirstTime(players);
     closeModal();
-    setArePlayersEntered();
+    setArePlayersEntered(true);
   };
 
   return (

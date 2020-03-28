@@ -15,7 +15,6 @@ export default class GameSettingsService {
   }
 
   static getPlayers() {
-    const players = JSON.parse(localStorage.getItem('players'));
-    return players;
+    return JSON.parse(localStorage.getItem('players'));
   }
 }
