@@ -25,7 +25,9 @@
     "test:ci": "CI=true react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src --ext .js,.jsx",
-    "lint:css": "stylelint './src/*.js'"
+    "lint:css": "stylelint './src/*.js'",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,8 +39,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@babel/preset-env": "^7.8.4",
-    "@babel/preset-react": "^7.8.3",
     "@testing-library/jest-dom": "^5.1.0",
     "@testing-library/react": "^10.0.1",
     "babel-jest": "^24.9.0",
